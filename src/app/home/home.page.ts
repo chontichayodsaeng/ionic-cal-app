@@ -9,13 +9,15 @@ import { HttpClient } from '@angular/common/http';
 export class HomePage {
 
   constructor(private http :HttpClient) {
-    this.calculate();
+    //this.calculate();
   }
 
-  async calculate() {
+  async calculate(a,b) {
 
-    let response = await<any>this.http.get('https://ionicframework.com/docs/').toPromise();
-    console.log(response);
-    this.calculate = response.results;
+    console.log('ตัวตั้ง', a , "ตัวบวก",b);
+   
+    let url = "https://nextflow-node-calculator-api.azurewebsites.net/calculator/plus"; 
+    
+    //this.calculate = response.results;
   }
 }
