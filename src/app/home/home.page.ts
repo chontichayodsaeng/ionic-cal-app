@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-home',
@@ -7,6 +8,14 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
-  constructor() {}
+  constructor(private http :HttpClient) {
+    this.calculate();
+  }
 
+  async calculate() {
+
+    let response = await<any>this.http.get('https://ionicframework.com/docs/').toPromise();
+    console.log(response);
+    this.calculate = response.results;
+  }
 }
